@@ -1,0 +1,40 @@
+.app-header {
+  color: #585a5b;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  height: 60px;
+}
+
+.author-info {
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .author-info {
+    margin-top: 5px;
+  }
+}
