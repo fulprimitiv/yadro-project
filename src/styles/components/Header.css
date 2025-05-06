@@ -26,15 +26,3 @@
 .author-info {
   font-size: 17px;
 }
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-  
-  .author-info {
-    margin-top: 5px;
-  }
-}

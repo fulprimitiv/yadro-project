@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectRow } from '../store/actions';
+import '../styles/components/Table.css';
 
 const Table = () => {
 	const { data, loading, error, selectedRowId } = useSelector(state => state);
@@ -15,8 +16,15 @@ const Table = () => {
 	}
 
 	if (!data || data.length === 0) {
-		return <div className="table-container">Нет данных для отображения</div>;
+		return <div className="table-container">
+			<h2>Таблица данных</h2>
+			<div className="no-data">Нет данных для отображения</div>
+		</div>;
 	}
+
+	const formatValue = (value) => {
+		return typeof value === 'number' ? value.toLocaleString() : value;
+	};
 
 	return (
 		<div className="table-container">
@@ -38,7 +46,7 @@ const Table = () => {
 						>
 							<td>{row.id}</td>
 							<td>{row.name}</td>
-							<td>{row.value}</td>
+							<td>{formatValue(row.value)}</td>
 						</tr>
 					))}
 				</tbody>
