@@ -1,4 +1,3 @@
-import globals from 'globals';
 import js from '@eslint/js';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -6,6 +5,14 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 export default [
 	js.configs.recommended,
 	{
+		ignores: [
+			'node_modules/**',
+			'dist/**',
+			'build/**',
+			'coverage/**',
+			'**/*.d.ts',
+			'**/*.config.cjs'
+		],
 		files: ['**/*.{js,jsx}'],
 		plugins: {
 			react: reactPlugin,
