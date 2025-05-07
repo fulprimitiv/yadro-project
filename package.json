@@ -8,8 +8,7 @@
     "build": "webpack --mode production",
     "test": "jest",
     "lint": "eslint src/**/*.{js,jsx}",
-    "format": "prettier --write src/**/*.{js,jsx,css}",
-    "prepare": "husky install"
+    "format": "prettier --write src/**/*.{js,jsx,css}"
   },
   "repository": {
     "type": "git",

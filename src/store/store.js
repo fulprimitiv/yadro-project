@@ -3,9 +3,6 @@ import { thunk } from 'redux-thunk';
 import rootReducer from './reducers';
 
 // Создаем хранилище с поддержкой асинхронных действий через redux-thunk
-const store = createStore(
-	rootReducer,
-	applyMiddleware(thunk)
-);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
