@@ -5,14 +5,6 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 export default [
 	js.configs.recommended,
 	{
-		ignores: [
-			'node_modules/**',
-			'dist/**',
-			'build/**',
-			'coverage/**',
-			'**/*.d.ts',
-			'**/*.config.cjs'
-		],
 		files: ['**/*.{js,jsx}'],
 		plugins: {
 			react: reactPlugin,
@@ -39,11 +31,22 @@ export default [
 				console: 'readonly',
 				Blob: 'readonly',
 				URL: 'readonly',
+
 				process: 'readonly',
 				require: 'readonly',
 				module: 'readonly',
 				__dirname: 'readonly',
-				__filename: 'readonly'
+				__filename: 'readonly',
+
+				describe: 'readonly',
+				it: 'readonly',
+				test: 'readonly',
+				expect: 'readonly',
+				beforeEach: 'readonly',
+				afterEach: 'readonly',
+				beforeAll: 'readonly',
+				afterAll: 'readonly',
+				jest: 'readonly'
 			}
 		},
 		rules: {
