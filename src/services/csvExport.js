@@ -1,15 +1,34 @@
 // Функция для экспорта данных в CSV
 export const exportTableToCsv = (data, filename) => {
   // Заголовки CSV
-  const headers = ['ID', 'Название', 'Значение'];
+  const headers = [
+    'Название',
+    'Производительность',
+    'Энергопотребление',
+    'Температура',
+    'Цена',
+    'Надежность',
+    'Доля рынка',
+    'Рейтинг',
+  ];
 
   // Преобразуем данные в строки CSV
   const csvRows = [
-    headers.join(','), // Заголовки
-    ...data.map((row) => [row.id, row.name, row.value].join(',')), // Данные
+    headers.join(','),
+    ...data.map((row) =>
+      [
+        `"${row.name}"`,
+        row.performance,
+        row.powerConsumption,
+        row.temperature,
+        row.price,
+        row.reliability,
+        row.marketShare,
+        row.customerRating,
+      ].join(',')
+    ), // Данные
   ];
 
-  // Объединяем строки в одну строку с переносами
   const csvString = csvRows.join('\n');
 
   // Создаем Blob с данными CSV
@@ -20,10 +39,8 @@ export const exportTableToCsv = (data, filename) => {
 
   // Поддержка для разных браузеров
   if (navigator.msSaveBlob) {
-    // IE 10+
     navigator.msSaveBlob(blob, filename);
   } else {
-    // Для других браузеров
     const url = URL.createObjectURL(blob);
     link.href = url;
     link.download = filename;

@@ -26,13 +26,14 @@ thead th {
   background-color: #f8f9fa;
   color: #495057;
   font-weight: 600;
-  text-align: left;
+  text-align: center;
   padding: 12px 15px;
   border-bottom: 2px solid #dee2e6;
 }
 
 tbody td {
   padding: 12px 15px;
+  text-align: center;
   border-bottom: 1px solid #dee2e6;
 }
 

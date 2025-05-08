@@ -21,12 +21,16 @@ export const fetchData = () => {
         payload: data,
       });
 
-      // Автоматически выбираем строку с максимальным значением
+      // Автоматически выбираем строку с максимальным значением производительности
       if (data.length > 0) {
-        const maxRow = data.reduce((prev, current) =>
-          prev.value > current.value ? prev : current
+        const maxPerformanceIndex = data.reduce(
+          (maxIndex, current, index, array) =>
+            current.performance > array[maxIndex].performance
+              ? index
+              : maxIndex,
+          0
         );
-        dispatch(selectRow(maxRow.id));
+        dispatch(selectRow(maxPerformanceIndex));
       }
     } catch (error) {
       dispatch({
@@ -45,10 +49,10 @@ export const clearData = () => {
 };
 
 // Действие для выбора строки
-export const selectRow = (id) => {
+export const selectRow = (index) => {
   return {
     type: SELECT_ROW,
-    payload: id,
+    payload: index,
   };
 };
 
@@ -58,7 +62,7 @@ export const exportToCsv = () => {
     const { data } = getState();
 
     if (data && data.length > 0) {
-      exportTableToCsv(data, 'table-data.csv');
+      exportTableToCsv(data, 'processors-data.csv');
     }
 
     dispatch({

@@ -34,21 +34,31 @@ const Table = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Название</th>
-            <th>Значение</th>
+            <th>Производительность</th>
+            <th>Энергопотребление</th>
+            <th>Температура</th>
+            <th>Цена</th>
+            <th>Надежность</th>
+            <th>Доля рынка</th>
+            <th>Рейтинг</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
+          {data.map((row, index) => (
             <tr
-              key={row.id}
-              className={selectedRowId === row.id ? 'selected' : ''}
-              onClick={() => dispatch(selectRow(row.id))}
+              key={index}
+              className={selectedRowId === index ? 'selected' : ''}
+              onClick={() => dispatch(selectRow(index))}
             >
-              <td>{row.id}</td>
               <td>{row.name}</td>
-              <td>{formatValue(row.value)}</td>
+              <td>{formatValue(row.performance)}</td>
+              <td>{formatValue(row.powerConsumption)}</td>
+              <td>{formatValue(row.temperature)}</td>
+              <td>{formatValue(row.price)}</td>
+              <td>{formatValue(row.reliability)}</td>
+              <td>{formatValue(row.marketShare)}</td>
+              <td>{formatValue(row.customerRating)}</td>
             </tr>
           ))}
         </tbody>
